@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem c:\\\\Users\\\\Ardent-intern\\\\homestay-booking-app\\\\server -Exclude node_modules)",
+      "Bash(Select-Object Name)",
+      "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue)"
+    ]
+  }
+}
