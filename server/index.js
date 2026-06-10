@@ -8,6 +8,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import bcrypt from "bcryptjs";
 import { v2 as cloudinary } from "cloudinary";
+import nodemailer from "nodemailer";
 
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
@@ -84,6 +85,9 @@ const uploadStorage = process.env.CLOUDINARY_CLOUD_NAME
     });
 
 const upload = multer({ storage: uploadStorage });
+
+// OTP STORE — in-memory, keyed by email
+const otpStore = new Map(); // email -> { otp, expiry }
 
 // PUBSUB
 const subscribers     = [];
@@ -194,6 +198,9 @@ const typeDefs = `#graphql
     registerUser(name: String!, email: String!, password: String!): User
     updateUser(id: ID!, name: String, password: String, oldPassword: String): User
 
+    requestPasswordReset(email: String!): Boolean
+    resetPassword(email: String!, otp: String!, newPassword: String!): Boolean
+
     createHomestay(input: HomestayInput!): Homestay
     updateHomestay(id: ID!, input: HomestayInput!): Homestay
     deleteHomestay(id: ID!): Boolean
@@ -251,6 +258,58 @@ const resolvers = {
       await user.save();
       publishUserChanged(user);
       return user;
+    },
+
+    requestPasswordReset: async (_, { email }) => {
+      const user = await User.findOne({ where: { email } });
+      if (!user) return true; // don't reveal whether email exists
+
+      const otp = Math.floor(100000 + Math.random() * 900000).toString();
+      otpStore.set(email, { otp, expiry: Date.now() + 10 * 60 * 1000 });
+
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+
+      await transporter.sendMail({
+        from: `"Homestay System" <${process.env.EMAIL_USER}>`,
+        to: email,
+        subject: "Your Password Reset OTP",
+        html: `
+          <div style="font-family:sans-serif;max-width:400px;margin:0 auto;padding:24px;border:1px solid #e5e7eb;border-radius:12px;">
+            <h2 style="color:#1d4ed8;margin-bottom:8px;">Password Reset</h2>
+            <p style="color:#374151;">Use the OTP below to reset your password. It expires in <strong>10 minutes</strong>.</p>
+            <div style="font-size:36px;font-weight:bold;letter-spacing:12px;text-align:center;padding:20px;background:#eff6ff;border-radius:8px;color:#1d4ed8;margin:16px 0;">
+              ${otp}
+            </div>
+            <p style="color:#6b7280;font-size:13px;">If you did not request this, you can ignore this email.</p>
+          </div>
+        `,
+      });
+
+      return true;
+    },
+
+    resetPassword: async (_, { email, otp, newPassword }) => {
+      const stored = otpStore.get(email);
+      if (!stored) throw new Error("No OTP was requested for this email.");
+      if (Date.now() > stored.expiry) {
+        otpStore.delete(email);
+        throw new Error("OTP has expired. Please request a new one.");
+      }
+      if (stored.otp !== otp) throw new Error("Invalid OTP. Please try again.");
+
+      const user = await User.findOne({ where: { email } });
+      if (!user) throw new Error("User not found.");
+
+      user.password = await bcrypt.hash(newPassword, 10);
+      await user.save();
+      otpStore.delete(email);
+      return true;
     },
 
     registerUser: async (_, { name, email, password }) => {
