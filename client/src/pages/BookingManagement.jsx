@@ -33,7 +33,7 @@ const CHIP_COLORS = [
   "#dc2626", "#0891b2", "#be185d", "#059669",
 ];
 
-function BookingCalendar({ bookings }) {
+function BookingCalendar({ bookings, resolveName }) {
   const [calDate, setCalDate] = useState(new Date());
 
   const year  = calDate.getFullYear();
@@ -208,7 +208,10 @@ function BookingManagement({ bookings, updateStatus, handleDeleteBooking, getSta
       </Typography>
 
       {/* ── Booking Calendar — only Confirmed + Paid ── */}
-      <BookingCalendar bookings={bookings.filter((b) => b.status === "Confirmed" && b.paymentStatus === "Paid")} />
+      <BookingCalendar
+        bookings={bookings.filter((b) => b.status === "Confirmed" && b.paymentStatus === "Paid")}
+        resolveName={resolveName}
+      />
 
       <Typography variant="h5" fontWeight="bold" sx={{ mb: 2, color: "#166534" }}>
         All Bookings
