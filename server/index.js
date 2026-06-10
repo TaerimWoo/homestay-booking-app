@@ -269,28 +269,38 @@ const resolvers = {
       otpStore.set(email, { otp, expiry: Date.now() + 10 * 60 * 1000 });
 
       const transporter = nodemailer.createTransport({
-        service: "gmail",
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // SSL — avoids Render free-tier SMTP port 587 block
         auth: {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASS,
         },
+        connectionTimeout: 10000, // 10 s — fail fast instead of hanging
+        greetingTimeout: 10000,
+        socketTimeout: 10000,
       });
 
-      await transporter.sendMail({
-        from: `"Homestay System" <${process.env.EMAIL_USER}>`,
-        to: email,
-        subject: "Your Password Reset OTP",
-        html: `
-          <div style="font-family:sans-serif;max-width:400px;margin:0 auto;padding:24px;border:1px solid #e5e7eb;border-radius:12px;">
-            <h2 style="color:#1d4ed8;margin-bottom:8px;">Password Reset</h2>
-            <p style="color:#374151;">Use the OTP below to reset your password. It expires in <strong>10 minutes</strong>.</p>
-            <div style="font-size:36px;font-weight:bold;letter-spacing:12px;text-align:center;padding:20px;background:#eff6ff;border-radius:8px;color:#1d4ed8;margin:16px 0;">
-              ${otp}
+      try {
+        await transporter.sendMail({
+          from: `"Homestay System" <${process.env.EMAIL_USER}>`,
+          to: email,
+          subject: "Your Password Reset OTP",
+          html: `
+            <div style="font-family:sans-serif;max-width:400px;margin:0 auto;padding:24px;border:1px solid #e5e7eb;border-radius:12px;">
+              <h2 style="color:#1d4ed8;margin-bottom:8px;">Password Reset</h2>
+              <p style="color:#374151;">Use the OTP below to reset your password. It expires in <strong>10 minutes</strong>.</p>
+              <div style="font-size:36px;font-weight:bold;letter-spacing:12px;text-align:center;padding:20px;background:#eff6ff;border-radius:8px;color:#1d4ed8;margin:16px 0;">
+                ${otp}
+              </div>
+              <p style="color:#6b7280;font-size:13px;">If you did not request this, you can ignore this email.</p>
             </div>
-            <p style="color:#6b7280;font-size:13px;">If you did not request this, you can ignore this email.</p>
-          </div>
-        `,
-      });
+          `,
+        });
+      } catch (mailErr) {
+        console.error("[nodemailer] Failed to send OTP email:", mailErr.message);
+        throw new Error("Could not send OTP email. Please try again later.");
+      }
 
       return true;
     },
