@@ -1,3 +1,4 @@
+import "dotenv/config";
 console.log("STARTING SERVER...");
 
 import express from "express";
