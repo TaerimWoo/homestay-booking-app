@@ -246,7 +246,7 @@ export default function Login({ setCurrentUser, setShowRegister }) {
           display: "flex",
           flexDirection: { xs:"column-reverse", md:"row" },
           width: "100%",
-          maxWidth: { md:980 },
+          maxWidth: { md:1060 },
           minHeight: { xs:"100vh", md:"auto" },
           borderRadius: { xs:0, md:"20px" },
           overflow: "hidden",
@@ -257,7 +257,9 @@ export default function Login({ setCurrentUser, setShowRegister }) {
 
           {/* ── Auth side ── */}
           <Box sx={{
-            width: { xs:"100%", md:500 },
+            flex: { md: 2 },
+            width: { xs:"100%" },
+            minWidth: { md: 360 },
             flexShrink: 0,
             display: "flex",
             flexDirection: "column",
