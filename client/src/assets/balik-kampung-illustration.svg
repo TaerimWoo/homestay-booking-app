@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 190" width="320" height="190" role="img" aria-label="A family arriving at a kampung house, parents unloading luggage from the car boot while two children start to play ball">
+  <!-- Sky -->
+  <rect x="0" y="0" width="320" height="104" fill="#FCEFE0"/>
+  <circle cx="258" cy="40" r="16" fill="#F4D08A"/>
+  <!-- Hills + grass -->
+  <path d="M0 100 Q70 78 150 96 T320 90 L320 190 L0 190 Z" fill="#C4DDA6"/>
+  <path d="M0 116 Q90 100 190 114 T320 110 L320 190 L0 190 Z" fill="#A9CD86"/>
+  <path d="M0 134 Q120 124 230 134 T320 132 L320 190 L0 190 Z" fill="#8FBF63"/>
+  <!-- Tree (left) -->
+  <rect x="15" y="92" width="5" height="20" fill="#8A5A2B"/>
+  <circle cx="17" cy="86" r="14" fill="#6FA84F"/>
+  <!-- Minangkabau house (curved gonjong roof) -->
+  <path d="M34 96 C32 84 31 76 30 70 C38 78 44 82 48 84 C53 78 55 70 57 64 C59 70 61 78 66 84 C70 82 76 78 83 70 C82 76 81 88 80 96 Q57 102 34 96 Z" fill="#C0532A"/>
+  <line x1="53" y1="66" x2="60" y2="58" stroke="#1F4D3F" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="60" y1="66" x2="53" y2="58" stroke="#1F4D3F" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="44" y="96" width="26" height="20" rx="2" fill="#DBBC8C"/>
+  <rect x="53" y="105" width="8" height="11" rx="1" fill="#8A5A2B"/>
+  <!-- Coconut palm -->
+  <path d="M96 120 Q98 94 102 74" fill="none" stroke="#B58A55" stroke-width="4" stroke-linecap="round"/>
+  <path d="M102 74 C90 64 84 64 79 67" fill="none" stroke="#6FA86A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M102 74 C90 74 85 79 81 86" fill="none" stroke="#6FA86A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M102 74 C101 58 103 52 106 47" fill="none" stroke="#6FA86A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M102 74 C114 64 119 64 123 68" fill="none" stroke="#6FA86A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M102 74 C115 74 120 79 123 86" fill="none" stroke="#6FA86A" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="99" cy="80" r="2.3" fill="#C0532A"/>
+  <circle cx="105" cy="82" r="2.3" fill="#C0532A"/>
+  <!-- Car with open boot -->
+  <rect x="150" y="120" width="58" height="18" rx="5" fill="#6E8F86"/>
+  <path d="M160 120 L168 108 L192 108 L200 120 Z" fill="#86A69C"/>
+  <rect x="169" y="110" width="21" height="8" rx="1" fill="#D7E6E0"/>
+  <path d="M206 120 L224 107 L227 111 L209 124 Z" fill="#6E8F86"/>
+  <circle cx="164" cy="139" r="6.5" fill="#3A3A38"/><circle cx="164" cy="139" r="2.4" fill="#9AA0A0"/>
+  <circle cx="194" cy="139" r="6.5" fill="#3A3A38"/><circle cx="194" cy="139" r="2.4" fill="#9AA0A0"/>
+  <!-- Luggage -->
+  <rect x="201" y="128" width="11" height="10" rx="1.5" fill="#8A5A2B"/>
+  <line x1="203" y1="128" x2="210" y2="128" stroke="#5E3C1C" stroke-width="2" stroke-linecap="round"/>
+  <!-- Father -->
+  <circle cx="218" cy="110" r="4" fill="#E3AC7E"/>
+  <path d="M213 115 L223 115 L222 132 L214 132 Z" fill="#C0532A"/>
+  <line x1="216" y1="132" x2="216" y2="139" stroke="#4A4A45" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="220" y1="132" x2="220" y2="139" stroke="#4A4A45" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- Mother (tudung) -->
+  <path d="M229 105 Q235 100 241 105 Q243 114 235 117 L229 117 Q227 113 229 105 Z" fill="#3E6B5A"/>
+  <circle cx="236" cy="111" r="3.4" fill="#E3AC7E"/>
+  <path d="M230 117 L242 117 L243 134 L229 134 Z" fill="#EFE3C8"/>
+  <line x1="233" y1="134" x2="233" y2="139" stroke="#4A4A45" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="239" y1="134" x2="239" y2="139" stroke="#4A4A45" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Child 1 (kicking) -->
+  <circle cx="266" cy="116" r="4" fill="#E3AC7E"/>
+  <path d="M261 121 L271 121 L270 134 L262 134 Z" fill="#4F8A5A"/>
+  <line x1="266" y1="134" x2="274" y2="140" stroke="#4A4A45" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="266" y1="134" x2="261" y2="142" stroke="#4A4A45" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="266" y1="124" x2="274" y2="128" stroke="#E3AC7E" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Child 2 -->
+  <circle cx="294" cy="118" r="4" fill="#E3AC7E"/>
+  <path d="M289 123 L299 123 L298 135 L290 135 Z" fill="#C0532A"/>
+  <line x1="293" y1="135" x2="291" y2="143" stroke="#4A4A45" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="295" y1="135" x2="298" y2="143" stroke="#4A4A45" stroke-width="2.4" stroke-linecap="round"/>
+  <!-- Ball -->
+  <circle cx="281" cy="142" r="5.5" fill="#FBF7EC" stroke="#1F4D3F" stroke-width="1.2"/>
+  <path d="M278 138 L281 142 L278 146 M284 138 L281 142 L284 146" fill="none" stroke="#1F4D3F" stroke-width="1" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 130" width="220" height="130" role="img" aria-label="Anjung Kampung logo">
+  <!-- Designed to sit on the dark green header (#2A5547). Transparent background. -->
+  <!-- ANIMATION: add the class "hide" to #person (via JS) when the password input is
+       focused and the password is hidden; remove it when show-password is on. -->
+  <style>
+    #person { transition: transform .32s ease; }
+    #person.hide { transform: translate(-44px, 4px); }
+  </style>
+
+  <!-- Minangkabau house mark (curved gonjong roof) -->
+  <path d="M16 94 C14 80 13 70 12 62 C21 72 28 77 33 79 C39 72 41 62 44 54 C46 62 49 72 55 79 C60 77 67 72 76 62 C75 70 74 84 72 94 Q44 102 16 94 Z" fill="#CF6A3E"/>
+  <line x1="40" y1="56" x2="47" y2="47" stroke="#F4ECD9" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="47" y1="56" x2="40" y2="47" stroke="#F4ECD9" stroke-width="2.2" stroke-linecap="round"/>
+  <rect x="27" y="94" width="24" height="15" rx="2" fill="#F4ECD9"/>
+  <rect x="35" y="99" width="8" height="10" rx="1" fill="#234E40"/>
+  <rect x="20" y="109" width="44" height="4" rx="2" fill="#F4ECD9"/>
+
+  <!-- Person (drawn BEFORE the tree so the tree hides him when .hide is applied) -->
+  <g id="person">
+    <path d="M184 85 A6 6 0 0 1 196 85 Z" fill="#5A3E28"/>
+    <circle cx="190" cy="86" r="6" fill="#E3AC7E"/>
+    <circle cx="188" cy="86" r="0.9" fill="#2C2A28"/>
+    <circle cx="192" cy="86" r="0.9" fill="#2C2A28"/>
+    <path d="M188 89 Q190 91 192 89" fill="none" stroke="#9A6A3A" stroke-width="0.9" stroke-linecap="round"/>
+    <path d="M184 92 L196 92 L194 104 L186 104 Z" fill="#CF6A3E"/>
+    <line x1="185" y1="94" x2="180" y2="100" stroke="#CF6A3E" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="195" y1="94" x2="200" y2="100" stroke="#CF6A3E" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="188" y1="104" x2="186" y2="112" stroke="#234E40" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="192" y1="104" x2="194" y2="112" stroke="#234E40" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+
+  <!-- Coconut tree + bush (occlude the person when hidden) -->
+  <ellipse cx="150" cy="108" rx="24" ry="9" fill="#3E6B5A"/>
+  <path d="M150 110 Q152 82 156 54" fill="none" stroke="#F4ECD9" stroke-width="4" stroke-linecap="round"/>
+  <path d="M156 54 C144 44 138 44 132 47" fill="none" stroke="#F4ECD9" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M156 54 C144 54 139 59 135 65" fill="none" stroke="#F4ECD9" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M156 54 C155 40 157 34 160 30" fill="none" stroke="#F4ECD9" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M156 54 C168 44 173 44 177 49" fill="none" stroke="#F4ECD9" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M156 54 C169 54 174 59 177 65" fill="none" stroke="#F4ECD9" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="152" cy="60" r="2.2" fill="#CF6A3E"/>
+  <circle cx="159" cy="62" r="2.2" fill="#CF6A3E"/>
+</svg>
