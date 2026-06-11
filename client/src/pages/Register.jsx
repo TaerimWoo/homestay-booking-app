@@ -9,6 +9,7 @@ import EmailIcon         from "@mui/icons-material/Email";
 import VisibilityIcon    from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { REGISTER_USER } from "../graphql";
+import BrandPanel from "../components/BrandPanel";
 
 function useLastCharPeek() {
   const [real, setReal] = useState("");
@@ -139,17 +140,23 @@ export default function Register({ setShowRegister }) {
         }
       `}</style>
 
-      <Box sx={{
-        minHeight: "100vh",
-        backgroundColor: "#ffffff",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        p: 3,
-      }}>
+      <Box sx={{ display: "flex", minHeight: "100vh" }}>
+        <BrandPanel />
+
+        {/* Right panel */}
+        <Box sx={{
+          width: { xs: "100%", md: 500 },
+          flexShrink: 0,
+          backgroundColor: "#ffffff",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          p: 3,
+          overflowY: "auto",
+        }}>
         <Box sx={{
           width: "100%", maxWidth: 420,
           borderRadius: 5,
           overflow: "hidden",
-          boxShadow: "0 24px 64px rgba(0,0,0,0.55)",
+          boxShadow: "0 8px 40px rgba(0,0,0,0.14)",
           animation: "cardIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards",
         }}>
 
@@ -289,6 +296,7 @@ export default function Register({ setShowRegister }) {
             </Box>
           </Box>
         </Box>
+        </Box> {/* right panel */}
       </Box>
     </>
   );
