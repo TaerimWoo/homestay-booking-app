@@ -11,14 +11,14 @@ const features = [
 export default function BrandPanel() {
   return (
     <Box sx={{
-      flex: { xs: "0 0 auto", md: 1 },
+      flex: 1,
+      minWidth: 0,
       backgroundColor: brand.panelCream,
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
       p: { xs: 4, md: 5 },
-      minHeight: { xs: 280, md: "100vh" },
     }}>
       <Box sx={{ width: "100%", maxWidth: 380, mb: 3.5 }}>
         <img

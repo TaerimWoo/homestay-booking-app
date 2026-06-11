@@ -171,28 +171,35 @@ export default function Register({ setShowRegister }) {
         }
       `}</style>
 
-      <Box sx={{ display:"flex", minHeight:"100vh", flexDirection:{ xs:"column-reverse", md:"row" } }}>
-        <BrandPanel />
-
-        {/* ── Right panel ── */}
+      {/* ── Page background ── */}
+      <Box sx={{
+        minHeight: "100vh",
+        backgroundColor: "#FBF7EC",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        p: { xs:0, sm:2, md:3 },
+      }}>
+        {/* ── Container card ── */}
         <Box sx={{
-          width: { xs:"100%", md:480 },
-          flexShrink: 0,
-          backgroundColor: "#FAF8F3",
           display: "flex",
-          alignItems: { xs:"flex-start", md:"center" },
-          justifyContent: "center",
-          p: { xs:2, md:4 },
-          minHeight: { xs:"auto", md:"100vh" },
-          overflowY: "auto",
+          flexDirection: { xs:"column-reverse", md:"row" },
+          width: "100%",
+          maxWidth: { md:980 },
+          minHeight: { xs:"100vh", md:"auto" },
+          borderRadius: { xs:0, md:"20px" },
+          overflow: "hidden",
+          boxShadow: { xs:"none", md:"0 8px 52px rgba(31,77,63,0.16)" },
+          animation: "cardIn 0.45s cubic-bezier(0.22,1,0.36,1) forwards",
         }}>
-          {/* Card */}
+          <BrandPanel />
+
+          {/* ── Auth side ── */}
           <Box sx={{
-            width:"100%", maxWidth:420,
-            borderRadius:"16px",
-            overflow:"hidden",
-            boxShadow:"0 4px 28px rgba(31,77,63,0.13)",
-            animation:"cardIn 0.45s cubic-bezier(0.22,1,0.36,1) forwards",
+            width: { xs:"100%", md:500 },
+            flexShrink: 0,
+            display: "flex",
+            flexDirection: "column",
           }}>
 
             {/* ── Green header ── */}
@@ -215,7 +222,7 @@ export default function Register({ setShowRegister }) {
 
             {/* ── Form body ── */}
             <Box component="form" onSubmit={handleRegister}
-              sx={{ backgroundColor:"white", px:{ xs:3, md:4 }, pt:3.5, pb:4 }}>
+              sx={{ backgroundColor:"white", px:{ xs:3, md:4 }, pt:3.5, pb:4, flex:1 }}>
 
               {formError && (
                 <Alert severity="error" sx={{ mb:2, borderRadius:"8px", fontSize:"0.82rem" }}>{formError}</Alert>
